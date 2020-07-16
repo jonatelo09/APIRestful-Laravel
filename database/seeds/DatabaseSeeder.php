@@ -6,6 +6,7 @@ use App\Product;
 use App\Transaction;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Eloquent\Factory;
 
 class DatabaseSeeder extends Seeder
 {
