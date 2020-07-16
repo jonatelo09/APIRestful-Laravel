@@ -34,4 +34,9 @@ class BuyerController extends Controller
 
         return response()->json(['data' => $comprador], 200);
     }
+
+    public function update($request, $id)
+    {
+        //
+    }
 }
