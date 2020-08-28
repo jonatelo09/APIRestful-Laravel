@@ -33,13 +33,29 @@ class SellerTransformer extends TransformerAbstract
     public function transform(Seller $seller)
     {
         return [
-            'identificador' => (int)$buyer->id,
-            'nombre' => (string)$buyer->name,
-            'correo' => (string)$buyer->email,
-            'esVeridicado' => (int)-$buyer->verified,
-            'fechaCreaccion' => (string)$buyer->created_at,
-            'fechaActualizacion' => (string)$buyer->updated_at,
-            'fechaEliminacion' => isset($buyer->updated_at) ? (string) $buyer->deleted_at : null,
+            'identificador' => (int)$seller->id,
+            'nombre' => (string)$seller->name,
+            'correo' => (string)$seller->email,
+            'esVerificado' => (int)$seller->verified,
+            'fechaCreaccion' => (string)$seller->created_at,
+            'fechaActualizacion' => (string)$seller->updated_at,
+            'fechaEliminacion' => isset($seller->deleted_at) ? (string) $seller->deleted_at : null,
         ];
     }
+
+    public static function originalAttribute($index)
+    {
+        $attributes = [
+            'identificador' => 'id',
+            'nombre' => 'name',
+            'correo' => 'email',
+            'esVerificado' => 'verified',
+            'fechaCreaccion' => 'created_at',
+            'fechaActualizacion' => 'updated_at',
+            'fechaEliminacion' => 'deleted_at',
+        ];
+
+        return isset($attributes[$index]) ? $attributes[$index] : null;
+    }
+
 }
